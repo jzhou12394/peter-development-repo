@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<style>
+body {background-color:rgba(255,0,0,0.3);}
+h1   {color: blue;}
+p    {color: red;}
+div {background-color: light green;}
+span {
+    color: red;
+    font-style: italic;
+}
+</style>
+<title>Create New Product</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container my-5">
+        <h1>Create New Product</h1>
+        <br />
+        <form action="#" th:action="@{/save}" th:object="${product}"
+            method="post">
+ 
+            <table border="0" cellpadding="10">
+            <div class="row">
+                <tr>
+                    <td>Product Name:</td>
+                    <td><input type="text" th:field="*{name}" /></td>
+                    <td><span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Product name error</span></td>
+                </tr>
+                <tr class="form-group col-md-8">
+                    <td>Brand:</td>
+                    <td><input type="text" th:field="*{brand}" /></td>
+                    <td><span th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}">Brand error</span></td>
+                </tr>
+                <tr class="form-group col-md-8">
+                    <td>Made In:</td>
+                    <td><input type="text" th:field="*{madein}" /></td>
+                    <td><span th:if="${#fields.hasErrors('madein')}" th:errors="*{madein}">Made In error</span></td>
+                </tr>
+                <tr class="form-group col-md-8">
+                    <td>Price:</td>
+                    <td><input type="text" th:field="*{price}" /></td>
+                    <td><span th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price error</span></td>
+                </tr>                            
+                <tr class="form-group col-md-8">
+                    <td colspan="2"><button type="reset">Reset</button> </td>
+                    <td colspan="3"><button type="submit">Save</button> </td>
+                </tr>
+                </div>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
